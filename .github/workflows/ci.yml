@@ -1,0 +1,26 @@
+names: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - feature-check
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Verify file exists
+        run: |
+         if [-f "app.txt" ]; then
+           echo "app.txt exists!"
+         else
+           echo "app.txt missing!"
+           exit 1
+         fi
+
+     - name" Count lines in file
+    run: wc -l app.txt
