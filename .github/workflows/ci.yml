@@ -1,4 +1,4 @@
-names: CI Pipeline
+name: CI Pipeline
 
 on:
   push:
@@ -15,12 +15,13 @@ jobs:
 
       - name: Verify file exists
         run: |
-         if [-f "app.txt" ]; then
-           echo "app.txt exists!"
-         else
-           echo "app.txt missing!"
-           exit 1
-         fi
+          if [ -f "app.txt" ]; then
+            echo "✅ app.txt exists!"
+          else
+            echo "❌ app.txt missing!"
+            exit 1
+          fi
 
-     - name" Count lines in file
-    run: wc -l app.txt
+      - name: Count lines in file
+        run: wc -l app.txt
+
